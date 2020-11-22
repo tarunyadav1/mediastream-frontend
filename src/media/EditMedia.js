@@ -49,7 +49,6 @@ export default function EditProfile({ match }) {
   const [media, setMedia] = useState({ title: "", description: "", genre: "" });
   const [redirect, setRedirect] = useState(false);
   const [error, setError] = useState("");
-  const jwt = auth.isAuthenticated();
 
   useEffect(() => {
     const abortController = new AbortController();

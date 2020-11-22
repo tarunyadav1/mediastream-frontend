@@ -8,7 +8,7 @@ import AddBoxIcon from "@material-ui/icons/AddBox";
 import Button from "@material-ui/core/Button";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
+import withWidth from "@material-ui/core/withWidth";
 
 import auth from "./../auth/auth-helper";
 import { makeStyles } from "@material-ui/core/styles";
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const isActive = (history, path) => {
-  if (history.location.pathname == path) return { color: "#f99085" };
+  if (history.location.pathname === path) return { color: "#f99085" };
   else return { color: "#efdcd5" };
 };
 
