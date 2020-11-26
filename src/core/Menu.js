@@ -25,7 +25,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const isActive = (history, path) => {
-  if (history.location.pathname === path) return { color: "#f99085" };
+  if (history.location.pathname === path)
+    return {
+      color: "#efdcd5",
+      borderBottom: "2px solid white",
+    };
   else return { color: "#efdcd5" };
 };
 
@@ -44,7 +48,14 @@ const Menu = withRouter(({ history, width }) => {
 
           <div>
             {width !== "xs" && (
-              <Link to="/">
+              <Link
+                style={{
+                  textDecoration: "none",
+                  color: "white",
+                  marginLeft: 5,
+                }}
+                to="/"
+              >
                 <IconButton aria-label="Home" style={isActive(history, "/")}>
                   <HomeIcon />
                 </IconButton>
@@ -55,12 +66,18 @@ const Menu = withRouter(({ history, width }) => {
             <span style={{ float: "right" }}>
               {!auth.isAuthenticated() && (
                 <span>
-                  <Link to="/signup">
+                  <Link
+                    style={{ textDecoration: "none", color: "white" }}
+                    to="/signup"
+                  >
                     <Button style={isActive(history, "/signup")}>
                       Sign up
                     </Button>
                   </Link>
-                  <Link to="/signin">
+                  <Link
+                    style={{ textDecoration: "none", color: "white" }}
+                    to="/signin"
+                  >
                     <Button style={isActive(history, "/signin")}>
                       Sign In
                     </Button>
@@ -69,13 +86,19 @@ const Menu = withRouter(({ history, width }) => {
               )}
               {auth.isAuthenticated() && (
                 <span>
-                  <Link to="/media/new">
+                  <Link
+                    style={{ textDecoration: "none", color: "white" }}
+                    to="/media/new"
+                  >
                     <Button style={isActive(history, "/media/new")}>
                       <AddBoxIcon />
                       {width !== "xs" && "  Add Media"}
                     </Button>
                   </Link>
-                  <Link to={"/user/" + auth.isAuthenticated().user._id}>
+                  <Link
+                    style={{ textDecoration: "none", color: "white" }}
+                    to={"/user/" + auth.isAuthenticated().user._id}
+                  >
                     <Button
                       style={isActive(
                         history,
