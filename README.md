@@ -11,6 +11,12 @@ Media Stream is an web application for streaming videos. User's can upload and s
 
 ## Technology Stack
 
+### Features
+
+- Uploading videos to MongoDB GridFS
+- Streaming videos from GridFS to a media player
+- Listing, displaying, updating, and deleting media for User
+
 ### Components
 
 - CSS: Styling web pages, html files
