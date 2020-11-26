@@ -12,13 +12,21 @@ import { read, update } from "./api-user.js";
 import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
   card: {
     maxWidth: 600,
     margin: "auto",
     textAlign: "center",
-    marginTop: theme.spacing(10),
-
-    paddingBottom: theme.spacing(2),
+    padding: 50,
+    [theme.breakpoints.down("sm")]: {
+      padding: "50px 0",
+    },
   },
   title: {
     margin: theme.spacing(2),
@@ -102,59 +110,61 @@ export default function EditProfile({ match }) {
     return <Redirect to={"/user/" + values.userId} />;
   }
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography variant="h6" className={classes.title}>
-          Edit Profile
-        </Typography>
-        <TextField
-          id="name"
-          label="Name"
-          className={classes.textField}
-          value={values.name}
-          onChange={handleChange("name")}
-          margin="normal"
-        />
-        <br />
-        <TextField
-          id="email"
-          type="email"
-          label="Email"
-          className={classes.textField}
-          value={values.email}
-          onChange={handleChange("email")}
-          margin="normal"
-        />
-        <br />
-        <TextField
-          id="password"
-          type="password"
-          label="Password"
-          className={classes.textField}
-          value={values.password}
-          onChange={handleChange("password")}
-          margin="normal"
-        />
-        <br />{" "}
-        {values.error && (
-          <Typography component="p" color="error">
-            <Icon color="error" className={classes.error}>
-              error
-            </Icon>
-            {values.error}
+    <div className={classes.container}>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography variant="h6" className={classes.title}>
+            Edit Profile
           </Typography>
-        )}
-      </CardContent>
-      <CardActions>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={clickSubmit}
-          className={classes.submit}
-        >
-          Submit
-        </Button>
-      </CardActions>
-    </Card>
+          <TextField
+            id="name"
+            label="Name"
+            className={classes.textField}
+            value={values.name}
+            onChange={handleChange("name")}
+            margin="normal"
+          />
+          <br />
+          <TextField
+            id="email"
+            type="email"
+            label="Email"
+            className={classes.textField}
+            value={values.email}
+            onChange={handleChange("email")}
+            margin="normal"
+          />
+          <br />
+          <TextField
+            id="password"
+            type="password"
+            label="Password"
+            className={classes.textField}
+            value={values.password}
+            onChange={handleChange("password")}
+            margin="normal"
+          />
+          <br />{" "}
+          {values.error && (
+            <Typography component="p" color="error">
+              <Icon color="error" className={classes.error}>
+                error
+              </Icon>
+              {values.error}
+            </Typography>
+          )}
+        </CardContent>
+        <CardActions>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={clickSubmit}
+            className={classes.submit}
+          >
+            Submit
+          </Button>
+        </CardActions>
+      </Card>
+    </div>
   );
 }

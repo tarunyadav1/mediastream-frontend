@@ -12,12 +12,21 @@ import { read, update } from "./api-media.js";
 import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
   card: {
-    maxWidth: 500,
+    maxWidth: 600,
     margin: "auto",
     textAlign: "center",
-    marginTop: theme.spacing(10),
-    paddingBottom: theme.spacing(2),
+    padding: 50,
+    [theme.breakpoints.down("sm")]: {
+      padding: "50px 0",
+    },
   },
   title: {
     margin: theme.spacing(2),
@@ -94,60 +103,62 @@ export default function EditProfile({ match }) {
     return <Redirect to={"/media/" + media._id} />;
   }
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography type="headline" component="h1" className={classes.title}>
-          Edit Video Details
-        </Typography>
-        <TextField
-          id="title"
-          label="Title"
-          className={classes.textField}
-          value={media.title}
-          onChange={handleChange("title")}
-          margin="normal"
-        />
-        <br />
-        <TextField
-          id="multiline-flexible"
-          label="Description"
-          multiline
-          rows="2"
-          value={media.description}
-          onChange={handleChange("description")}
-          className={classes.textField}
-          margin="normal"
-        />
-        <br />
-        <TextField
-          id="genre"
-          label="Genre"
-          className={classes.textField}
-          value={media.genre}
-          onChange={handleChange("genre")}
-          margin="normal"
-        />
-        <br />
-        <br />{" "}
-        {error && (
-          <Typography component="p" color="error">
-            <Icon color="error" className={classes.error}>
-              error
-            </Icon>
-            {error}
+    <div className={classes.container}>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography type="headline" component="h1" className={classes.title}>
+            Edit Video Details
           </Typography>
-        )}
-      </CardContent>
-      <CardActions>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={clickSubmit}
-          className={classes.submit}
-        >
-          Submit
-        </Button>
-      </CardActions>
-    </Card>
+          <TextField
+            id="title"
+            label="Title"
+            className={classes.textField}
+            value={media.title}
+            onChange={handleChange("title")}
+            margin="normal"
+          />
+          <br />
+          <TextField
+            id="multiline-flexible"
+            label="Description"
+            multiline
+            rows="2"
+            value={media.description}
+            onChange={handleChange("description")}
+            className={classes.textField}
+            margin="normal"
+          />
+          <br />
+          <TextField
+            id="genre"
+            label="Genre"
+            className={classes.textField}
+            value={media.genre}
+            onChange={handleChange("genre")}
+            margin="normal"
+          />
+          <br />
+          <br />{" "}
+          {error && (
+            <Typography component="p" color="error">
+              <Icon color="error" className={classes.error}>
+                error
+              </Icon>
+              {error}
+            </Typography>
+          )}
+        </CardContent>
+        <CardActions>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={clickSubmit}
+            className={classes.submit}
+          >
+            Submit
+          </Button>
+        </CardActions>
+      </Card>
+    </div>
   );
 }
