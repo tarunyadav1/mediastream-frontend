@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+<p align="center">
+  <img src="https://res.cloudinary.com/dphrdrgmd/image/upload/v1606285266/Media_Stream_1_m4oswa.png" alt="logo" width="35%" />
+</p>
+<h1 align="center">Media Stream Web Application</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+[![Netlify Status](https://api.netlify.com/api/v1/badges/57adf506-2a57-4336-a927-0916c27a0b00/deploy-status)](https://app.netlify.com/sites/streammedia/deploys)
 
-In the project directory, you can run:
+Media Stream is an web application for streaming videos. User's can upload and stream video. MongoDb GridFs is used to store the video.
 
-### `yarn start`
+## Technology Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Components
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- CSS: Styling web pages, html files
+- Javascript: Primary programing language
+- ReactJS: Javascript library for building User Interfaces
+- Material-UI: UI library for design system
+- styled-components: CSS-in-JS library
 
-### `yarn test`
+## Development
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Media Stream is written in JavaScript with React. To get started with the code, follow this doc:
 
-### `yarn build`
+- [Architecture](https://github.com/tarunyadav1/mediastream-frontend/docs/ARCHITECTURE.md)
+- [Deploy](https://github.com/https://github.com/tarunyadav1/mediastream-frontend/docs/DEPLOY.md)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Requirements
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- node --version >= 6
+- yarn --version >= 3
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Local Installation
 
-### `yarn eject`
+### Steps
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- `git clone <repository-url>` , where `<repository-url>` is the link to the forked repository
+- `cd mediastream-frontend`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Note :** If you want to contribute, first fork the original repository and clone the forked repository into your local machine followed by `cd` into the directory
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```sh
+git clone https://github.com/USERNAME/mediastream-frontend.git
+cd mediastream-frontend
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Install all the dependencies with `yarn install`
+- Start the server with `yarn start`
+- Visit your app at [http://localhost:3000](http://localhost:3000).
