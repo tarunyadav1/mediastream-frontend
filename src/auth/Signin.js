@@ -12,12 +12,21 @@ import { Redirect } from "react-router-dom";
 import { signin } from "./api-auth.js";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
   card: {
     maxWidth: 600,
     margin: "auto",
     textAlign: "center",
-    marginTop: theme.spacing(10),
-    paddingBottom: theme.spacing(2),
+    padding: 50,
+    [theme.breakpoints.down("sm")]: {
+      padding: "50px 0",
+    },
   },
   error: {
     verticalAlign: "middle",
@@ -79,50 +88,52 @@ export default function Signin(props) {
   }
 
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography variant="h6" className={classes.title}>
-          Sign In
-        </Typography>
-        <TextField
-          id="email"
-          type="email"
-          label="Email"
-          className={classes.textField}
-          value={values.email}
-          onChange={handleChange("email")}
-          margin="normal"
-        />
-        <br />
-        <TextField
-          id="password"
-          type="password"
-          label="Password"
-          className={classes.textField}
-          value={values.password}
-          onChange={handleChange("password")}
-          margin="normal"
-        />
-        <br />{" "}
-        {values.error && (
-          <Typography component="p" color="error">
-            <Icon color="error" className={classes.error}>
-              error
-            </Icon>
-            {values.error}
+    <div className={classes.container}>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography variant="h6" className={classes.title}>
+            Sign In
           </Typography>
-        )}
-      </CardContent>
-      <CardActions>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={clickSubmit}
-          className={classes.submit}
-        >
-          Submit
-        </Button>
-      </CardActions>
-    </Card>
+          <TextField
+            id="email"
+            type="email"
+            label="Email"
+            className={classes.textField}
+            value={values.email}
+            onChange={handleChange("email")}
+            margin="normal"
+          />
+          <br />
+          <TextField
+            id="password"
+            type="password"
+            label="Password"
+            className={classes.textField}
+            value={values.password}
+            onChange={handleChange("password")}
+            margin="normal"
+          />
+          <br />{" "}
+          {values.error && (
+            <Typography component="p" color="error">
+              <Icon color="error" className={classes.error}>
+                error
+              </Icon>
+              {values.error}
+            </Typography>
+          )}
+        </CardContent>
+        <CardActions>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={clickSubmit}
+            className={classes.submit}
+          >
+            Submit
+          </Button>
+        </CardActions>
+      </Card>
+    </div>
   );
 }

@@ -16,12 +16,21 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
   card: {
     maxWidth: 600,
     margin: "auto",
     textAlign: "center",
-    marginTop: theme.spacing(10),
-    paddingBottom: theme.spacing(2),
+    padding: 50,
+    [theme.breakpoints.down("sm")]: {
+      padding: "50px 0",
+    },
   },
   error: {
     verticalAlign: "middle",
@@ -71,7 +80,7 @@ export default function Signup() {
   };
 
   return (
-    <div>
+    <div className={classes.container}>
       <Card className={classes.card}>
         <CardContent>
           <Typography variant="h6" className={classes.title}>

@@ -13,12 +13,21 @@ import { create } from "./api-media.js";
 import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+  },
   card: {
-    maxWidth: 500,
+    maxWidth: 600,
     margin: "auto",
     textAlign: "center",
-    marginTop: theme.spacing(10),
-    paddingBottom: theme.spacing(2),
+    padding: 50,
+    [theme.breakpoints.down("sm")]: {
+      padding: "50px 0",
+    },
   },
   title: {
     margin: theme.spacing(2),
@@ -96,77 +105,79 @@ export default function NewMedia() {
   }
 
   return (
-    <Card className={classes.card}>
-      <CardContent>
-        <Typography type="headline" component="h1" className={classes.title}>
-          New Video
-        </Typography>
-        <input
-          accept="video/*"
-          onChange={handleChange("video")}
-          className={classes.input}
-          id="icon-button-file"
-          type="file"
-        />
-        <label htmlFor="icon-button-file">
-          <Button color="secondary" variant="contained" component="span">
-            Upload
-            <FileUpload />
-          </Button>
-        </label>{" "}
-        <span className={classes.filename}>
-          {values.video ? values.video.name : ""}
-        </span>
-        <br />
-        <TextField
-          id="title"
-          label="Title"
-          className={classes.textField}
-          value={values.title}
-          onChange={handleChange("title")}
-          margin="normal"
-        />
-        <br />
-        <TextField
-          id="multiline-flexible"
-          label="Description"
-          multiline
-          rows="2"
-          value={values.description}
-          onChange={handleChange("description")}
-          className={classes.textField}
-          margin="normal"
-        />
-        <br />
-        <TextField
-          id="genre"
-          label="Genre"
-          className={classes.textField}
-          value={values.genre}
-          onChange={handleChange("genre")}
-          margin="normal"
-        />
-        <br />
-        <br />{" "}
-        {values.error && (
-          <Typography component="p" color="error">
-            <Icon color="error" className={classes.error}>
-              error
-            </Icon>
-            {values.error}
+    <div className={classes.container}>
+      <Card className={classes.card}>
+        <CardContent>
+          <Typography type="headline" component="h1" className={classes.title}>
+            New Video
           </Typography>
-        )}
-      </CardContent>
-      <CardActions>
-        <Button
-          color="primary"
-          variant="contained"
-          onClick={clickSubmit}
-          className={classes.submit}
-        >
-          {isLoading ? "Loading" : "Submit"}
-        </Button>
-      </CardActions>
-    </Card>
+          <input
+            accept="video/*"
+            onChange={handleChange("video")}
+            className={classes.input}
+            id="icon-button-file"
+            type="file"
+          />
+          <label htmlFor="icon-button-file">
+            <Button color="secondary" variant="contained" component="span">
+              Upload
+              <FileUpload />
+            </Button>
+          </label>{" "}
+          <span className={classes.filename}>
+            {values.video ? values.video.name : ""}
+          </span>
+          <br />
+          <TextField
+            id="title"
+            label="Title"
+            className={classes.textField}
+            value={values.title}
+            onChange={handleChange("title")}
+            margin="normal"
+          />
+          <br />
+          <TextField
+            id="multiline-flexible"
+            label="Description"
+            multiline
+            rows="2"
+            value={values.description}
+            onChange={handleChange("description")}
+            className={classes.textField}
+            margin="normal"
+          />
+          <br />
+          <TextField
+            id="genre"
+            label="Genre"
+            className={classes.textField}
+            value={values.genre}
+            onChange={handleChange("genre")}
+            margin="normal"
+          />
+          <br />
+          <br />{" "}
+          {values.error && (
+            <Typography component="p" color="error">
+              <Icon color="error" className={classes.error}>
+                error
+              </Icon>
+              {values.error}
+            </Typography>
+          )}
+        </CardContent>
+        <CardActions>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={clickSubmit}
+            className={classes.submit}
+          >
+            {isLoading ? "Loading" : "Submit"}
+          </Button>
+        </CardActions>
+      </Card>
+    </div>
   );
 }
