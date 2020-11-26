@@ -1,7 +1,13 @@
 <p align="center">
   <img src="https://res.cloudinary.com/dphrdrgmd/image/upload/v1606369843/Media_Stream_1_m4oswa_qabrsp.png" alt="logo" width="35%" />
 </p>
-<h1 align="center">Media Stream Web Application</h1>
+<h1 align="center">
+<a href="https://streammedia.netlify.app/">
+
+Media Stream Web Application
+</a>
+
+</h1>
 
 ---
 
