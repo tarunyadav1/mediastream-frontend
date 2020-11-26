@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { read, listRelated } from "./api-media.js";
 import Media from "./Media";
 import RelatedMedia from "./RelatedMedia";
@@ -23,13 +24,21 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "30px",
     marginTop: " 10px",
   },
+  spinner: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "80vh",
+  },
 }));
 
 export default function PlayMedia(props) {
   const classes = useStyles();
-  let [media, setMedia] = useState({ postedBy: {} });
-  let [relatedMedia, setRelatedMedia] = useState([]);
+  const [media, setMedia] = useState({ postedBy: {} });
+  const [relatedMedia, setRelatedMedia] = useState([]);
   const [autoPlay, setAutoPlay] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const abortController = new AbortController();
@@ -38,8 +47,10 @@ export default function PlayMedia(props) {
     read({ mediaId: props.match.params.mediaId }, signal).then((data) => {
       if (data && data.error) {
         console.log(data.error);
+        setIsLoading(false);
       } else {
         setMedia(data);
+        setIsLoading(false);
       }
     });
     return function cleanup() {
@@ -101,11 +112,17 @@ export default function PlayMedia(props) {
     <div className={classes.root}>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={12} md={8}>
-          <Media
-            media={media}
-            nextUrl={nextUrl}
-            handleAutoplay={handleAutoplay}
-          />
+          {isLoading ? (
+            <div className={classes.spinner}>
+              <CircularProgress />
+            </div>
+          ) : (
+            <Media
+              media={media}
+              nextUrl={nextUrl}
+              handleAutoplay={handleAutoplay}
+            />
+          )}
         </Grid>
         {relatedMedia.length > 0 && (
           <Grid item xs={12} sm={12} md={4}>

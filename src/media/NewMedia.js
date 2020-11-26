@@ -4,6 +4,7 @@ import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import FileUpload from "@material-ui/icons/AddToQueue";
@@ -174,7 +175,11 @@ export default function NewMedia() {
             onClick={clickSubmit}
             className={classes.submit}
           >
-            {isLoading ? "Loading" : "Submit"}
+            {isLoading ? (
+              <CircularProgress size={24} color="secondary" />
+            ) : (
+              "Submit"
+            )}
           </Button>
         </CardActions>
       </Card>
