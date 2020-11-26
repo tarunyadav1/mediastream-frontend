@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://res.cloudinary.com/dphrdrgmd/image/upload/v1606285266/Media_Stream_1_m4oswa.png" alt="logo" width="35%" />
+  <img src="https://res.cloudinary.com/dphrdrgmd/image/upload/v1606369843/Media_Stream_1_m4oswa_qabrsp.png" alt="logo" width="35%" />
 </p>
 <h1 align="center">Media Stream Web Application</h1>
 
