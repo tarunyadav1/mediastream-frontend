@@ -23,8 +23,8 @@ Media Stream is an web application for streaming videos. User's can upload and s
 
 Media Stream is written in JavaScript with React. To get started with the code, follow this doc:
 
-- [Architecture](https://github.com/tarunyadav1/mediastream-frontend/docs/ARCHITECTURE.md)
-- [Deploy](https://github.com/https://github.com/tarunyadav1/mediastream-frontend/docs/DEPLOY.md)
+- [Architecture](https://github.com/tarunyadav1/mediastream-frontend/blob/master/docs/ARCHITECTURE.md)
+- [Deploy](https://github.com/tarunyadav1/mediastream-frontend/blob/master/docs/DEPLOY.md)
 
 ## Requirements
 
